@@ -1,6 +1,7 @@
 package BaiThucHanh1;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Hotel {
     ArrayList<User> users = new ArrayList<>();
@@ -41,6 +42,19 @@ public class Hotel {
     public void addNewRoom(Room room){
          rooms.add(room);
     }
+    public void editUser(int index,User user){
+        users.set(index,user);
+    }
+    public void removeRoom(Room room){
+        rooms.remove(room);
+    }
+    public void addUser(User user){
+        users.add(user);
+    }
+    public void removeUser(User user){
+        users.remove(user);
+
+    }
     public long getAllTotalPrice(){
         long total = 0;
         for (Order order: orders) {
@@ -51,9 +65,7 @@ public class Hotel {
     public void showInfoOfClient() {
         System.out.println(toString());
     }
-    public long checkOut(Order order){
-        return  order.getTotalPrice();
-    }
+
     @Override
     public String toString() {
         return "Hotel{" +

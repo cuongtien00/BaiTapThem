@@ -6,39 +6,39 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        User huyen = new User("Huyen","2002","123");
-        User cuong = new User("Cuong","2000","456");
-        ArrayList<User> user= new ArrayList<>();
+        User huyen = new User("Huyen", "2002", "123");
+        User cuong = new User("Cuong", "2000", "456");
+        ArrayList<User> user = new ArrayList<>();
         user.add(huyen);
         user.add(cuong);
 
-        Room r1 = new Room("r1","VIP",100);
-        Room r2 = new Room("r2","MEDIUM",70);
-        Room r3 = new Room("r3","FAKE",50);
+        Room r1 = new Room("r1", "VIP", 100);
+        Room r2 = new Room("r2", "MEDIUM", 70);
+        Room r3 = new Room("r3", "FAKE", 50);
         ArrayList<Room> room = new ArrayList<>();
         room.add(r1);
         room.add(r2);
         room.add(r3);
 
-        Hotel ongTan = new Hotel(user,room);
+        Hotel ongTan = new Hotel(user, room);
 
         Order orderOfHuyen = new Order();
         orderOfHuyen.setUser(huyen);
         orderOfHuyen.setRoom(r1);
-        orderOfHuyen.setCheckIn(LocalDate.of(2021,10,1));
-        orderOfHuyen.setCheckOut(LocalDate.of(2021,10,5));
+        orderOfHuyen.setCheckIn(LocalDate.of(2021, 10, 1));
+        orderOfHuyen.setCheckOut(LocalDate.of(2021, 10, 5));
 
         Order orderOfCuong = new Order();
         orderOfCuong.setUser(cuong);
         orderOfCuong.setRoom(r3);
-        orderOfCuong.setCheckIn(LocalDate.of(2021,9,3));
-        orderOfCuong.setCheckOut(LocalDate.of(2021,9,10));
+        orderOfCuong.setCheckIn(LocalDate.of(2021, 9, 3));
+        orderOfCuong.setCheckOut(LocalDate.of(2021, 9, 10));
 
         Order order2OfCuong = new Order();
         order2OfCuong.setUser(cuong);
         order2OfCuong.setRoom(r1);
-        order2OfCuong.setCheckIn(LocalDate.of(2021,9,3));
-        order2OfCuong.setCheckOut(LocalDate.of(2021,9,10));
+        order2OfCuong.setCheckIn(LocalDate.of(2021, 9, 3));
+        order2OfCuong.setCheckOut(LocalDate.of(2021, 9, 10));
 
         ArrayList<Order> orders = new ArrayList<>();
         orders.add(orderOfCuong);
@@ -53,26 +53,25 @@ public class Main {
         ongTan.showInfoOfClient();
 
 
-
-        tinhSoPhongCuaMotKhachDangThue(orders);
+//        tinhSoPhongCuaMotKhachDangThue(orders);
 
         tinhTienPhongTuCMND(orders);
 
 
-
     }
+
     private static void tinhTongTienCuaMotPhong(ArrayList<Order> orders) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap ten phong can check: ");
         String roomName = scanner.nextLine();
         int total = 0;
-        for (Order a: orders) {
-            if(a.getRoom().getName().equalsIgnoreCase(roomName)){
+        for (Order a : orders) {
+            if (a.getRoom().getName().equalsIgnoreCase(roomName)) {
 
                 total += a.getTotalPrice();
             }
         }
-        if(total == 0){
+        if (total == 0) {
             System.out.println("Phong khong ton tai");
             return;
         }
@@ -84,8 +83,8 @@ public class Main {
         System.out.println("Nhap ten phong can check: ");
         String roomName = scanner.nextLine();
         int count = 0;
-        for (Order a: orders) {
-            if(a.getRoom().getName().equalsIgnoreCase(roomName)){
+        for (Order a : orders) {
+            if (a.getRoom().getName().equalsIgnoreCase(roomName)) {
                 count++;
             }
         }
@@ -109,8 +108,8 @@ public class Main {
         else {
             System.out.println("So phong hien dang thue cua Ong/Ba " + name + " la " + count);
         }
+}
 
-    }
 
     private static void tinhTienPhongTuCMND(ArrayList<Order> orders) {
         Scanner scanner = new Scanner(System.in);
