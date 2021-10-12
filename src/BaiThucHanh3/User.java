@@ -1,11 +1,26 @@
 package BaiThucHanh3;
 
+import java.util.Scanner;
+
 public class User {
     private String name;
     private String address;
     private String code;
 
     public User() {
+    }
+
+    public void inputInfo(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhap ten");
+        name = input.nextLine();
+
+        System.out.println("Nhap dia chi");
+        address = input.nextLine();
+
+        System.out.println("Nhap code");
+        code = input.nextLine();
+
     }
 
     public User(String name, String address, String code) {
@@ -38,12 +53,12 @@ public class User {
         this.code = code;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", code='" + code + '\'' +
-                '}';
+
+    public void showInfo() {
+        System.out.println("Khách hàng{" +
+                "tên='" + name + '\'' +
+                ", địa chỉ='" + address + '\'' +
+                ", mã code='" + code + '\''
+                );
     }
 }

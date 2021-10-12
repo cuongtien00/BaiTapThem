@@ -1,23 +1,32 @@
 package BaiThucHanh3;
 
-public class Receipt {
+import java.util.Scanner;
+
+public class Receipt extends User {
     private int firstNum;
     private int lastNum;
-    private User user;
+    private float money;
+
 
     public Receipt() {
     }
 
-    public Receipt(int firstNum, int lastNum, User user) {
-        this.firstNum = firstNum;
-        this.lastNum = lastNum;
-        this.user = user;
+    @Override
+    public void inputInfo() {
+        super.inputInfo();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap so dien cu ");
+        firstNum = scanner.nextInt();
+
+        System.out.println("Nhap so dien moi ");
+        lastNum = scanner.nextInt();
     }
 
-    public Receipt(int firstNum, int lastNum) {
-        this.firstNum = firstNum;
-        this.lastNum = lastNum;
-    }
+   public float getMoney(){
+       this.money = (lastNum-firstNum)*750;
+       return money;
+   }
 
     public int getFirstNum() {
         return firstNum;
@@ -35,25 +44,9 @@ public class Receipt {
         this.lastNum = lastNum;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-    public double getBill(){
-        double result = 0;
-        result = (lastNum-firstNum)*750;
-        return result;
-    }
-
     @Override
-    public String toString() {
-        return "Receipt{" +
-                "firstNum=" + firstNum +
-                ", lastNum=" + lastNum +
-                ", user=" + user +
-                '}';
+    public void showInfo() {
+        super.showInfo();
+        System.out.println("; firstNum: " + firstNum + "; lastNum: " + lastNum + "}");
     }
 }
